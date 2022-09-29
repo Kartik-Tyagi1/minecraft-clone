@@ -5,11 +5,11 @@ https://www.youtube.com/watch?v=qpOZup_3P_A&t=36s
 
 ## How to play?
 
-Currently it has 5 types of blocks: Grass, Wood, Log, Glass and Dirt.
-You switch blocks with numbers 1-5 on your keyboard.
-You navigate the world with the mouse and WASD.
-You can click to add blocks and Alt+Click to remove blocks.
-You world is stored in your browsers local storage.
+- Currently it has 5 types of blocks: Grass, Wood, Log, Glass and Dirt.
+- Switch blocks with numbers 1-5 on your keyboard.
+- Move around the world with the mouse and WASD.
+- Right click to add blocks and Alt + Right Click to remove blocks.
+- Your world is stored in your browser's local storage.
 
 ## Start the Project
 
