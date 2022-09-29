@@ -1,6 +1,5 @@
-import { usePlane } from "@react-three/cannon"
-import { NearestFilter, RepeatWrapping } from "three"
-import { GroundTexture } from "../images/textures"
+import { usePlane } from "@react-three/cannon";
+import { GroundTexture } from "../images/textures";
 
 /*
  * This is the Ground Component
@@ -13,13 +12,8 @@ export const Ground = () => {
         position: [0,0,0] 
     }))
 
-    // Get Texture to wrap across the screen (aka repeat itself every 100 pixels?)
-    GroundTexture.magFilter = NearestFilter; // Reduce texture stretching
-    GroundTexture.wrapS = RepeatWrapping;
-    GroundTexture.wrapT = RepeatWrapping;
     GroundTexture.repeat.set(100,100);
-
-
+    
     return (
         <mesh ref={ref}>
             <planeBufferGeometry attach='geometry' args={[100,100]}/>
