@@ -14,6 +14,8 @@ const images = {
 export const TextureSelector = () => {
     const [visible, setVisible] = useState(false);
     const [activeTexture, setTexture] = useStore((state) => [state.texture, state.setTexture])
+    
+    // Get Textures from keyboard hook
     const {
         dirtTexture,
         grassTexture,
@@ -22,7 +24,7 @@ export const TextureSelector = () => {
         logTexture
     } = useKeyboard()
 
-    
+    // Find the texture that is true and set active
     useEffect(() => {
         const textures = {
             dirtTexture,
@@ -43,6 +45,7 @@ export const TextureSelector = () => {
         woodTexture,
         logTexture])
 
+    // Show selected texture out of all textures for two seconds
     useEffect(() => {
 		const visibilityTimeout = setTimeout(() => {
 			setVisible(false)

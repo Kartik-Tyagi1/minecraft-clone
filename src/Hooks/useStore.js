@@ -4,6 +4,7 @@ import create from "zustand";
 // Handles intial game state and changes to the game state
 
 export const useStore = create((set) => ({
+    // Default texture
     texture: 'dirtTexture',
 
     // Array that holds all cubes added to the world
@@ -22,6 +23,8 @@ export const useStore = create((set) => ({
             ]
         }))
     },
+
+    // Removes cube at the found position
     removeCube: (x, y, z) => {
         set((previousState) => ({
             cubes: previousState.cubes.filter(cube => {
@@ -30,6 +33,8 @@ export const useStore = create((set) => ({
             })
         }))
     },
+
+    // Set the default texture to the selected texture
     setTexture: (texture) => {
         set(() => ({
             texture

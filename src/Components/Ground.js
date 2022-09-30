@@ -20,7 +20,8 @@ export const Ground = () => {
     return (
         <mesh 
             onClick={(e) => {
-                e.stopPropagation()
+                e.stopPropagation() // Don't click through
+                // Add cube on top of the location of the click
                 const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val));
                 addCube(x, y, z);
             }}

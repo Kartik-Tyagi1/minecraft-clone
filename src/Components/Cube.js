@@ -17,8 +17,9 @@ export const Cube = ({ position, texture}) => {
     return (
         <mesh 
             onClick={(e) => {
-                e.stopPropagation()
-                const clickedFace = Math.floor(e.faceIndex / 2)
+                e.stopPropagation() // Don't click through gound
+                // Based on which face of the cube is clicked we have to add a cube in front or on top of that face
+                const clickedFace = Math.floor(e.faceIndex / 2) 
                 const {x,y,z} = ref.current.position
                 if(e.altKey){
                     removeCube(x, y ,z)
