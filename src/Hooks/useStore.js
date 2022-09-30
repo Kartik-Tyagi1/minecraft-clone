@@ -4,22 +4,13 @@ import create from "zustand";
 // Handles intial game state and changes to the game state
 
 export const useStore = create((set) => ({
-    Texture: 'dirt',
+    texture: 'dirtTexture',
 
     // Array that holds all cubes added to the world
-    Cubes: [{
-        key: nanoid(),
-        position: [1,1,1],
-        texture: 'DirtTexture'
-    },
-    {
-        key: nanoid(),
-        position: [1,3,1],
-        texture: 'WoodTexture'
-    }],
+    cubes: [],
 
     // Takes in position to add cube and adds it to the cube array
-    AddCube: (x, y, z) => {
+    addCube: (x, y, z) => {
         set((previousState) => ({
             cubes: [
                 ...previousState.cubes,
@@ -31,8 +22,19 @@ export const useStore = create((set) => ({
             ]
         }))
     },
-    RemoveCube: () => {},
-    SetTexture: () => {},
+    removeCube: (x, y, z) => {
+        set((previousState) => ({
+            cubes: previousState.cubes.filter(cube => {
+                const [X,Y,Z] = cube.position
+                return X != x || Y != y || Z != z
+            })
+        }))
+    },
+    setTexture: (texture) => {
+        set(() => ({
+            texture
+        }))
+    },
     SaveWorld: () => {},
     ResetWorld: () => {}
 }))

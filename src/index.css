@@ -52,3 +52,11 @@ body {
 .cursor {
   color: black;
 }
+
+.texture-selector {
+  transform: scale(10);
+}
+
+.texture-selector img.active {
+  border: 2px solid red;
+}
