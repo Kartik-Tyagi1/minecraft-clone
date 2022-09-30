@@ -4,8 +4,10 @@ import { Canvas } from '@react-three/fiber';
 import { Cubes } from './Components/Cubes';
 import { FPV } from './Components/FPV';
 import { Ground } from './Components/Ground';
+import { Menu } from './Components/Menu';
 import { Player } from './Components/Player';
 import { TextureSelector } from './Components/TextureSelector';
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
       </Canvas>
       <div className='absolute centered cursor'>+</div>
       <TextureSelector/>
+      <Menu/>
     </>
   );
 }

@@ -1,14 +1,16 @@
 import { nanoid } from "nanoid";
 import create from "zustand";
 
-// Handles intial game state and changes to the game state
+const getLocalStorage = (key) => JSON.parse(window.localStorage.getItem(key));
+const setLocalStorage = (key, value) => window.localStorage.setItem(key, JSON.stringify(value));
 
+// Handles intial game state and changes to the game state
 export const useStore = create((set) => ({
     // Default texture
     texture: 'dirtTexture',
 
-    // Array that holds all cubes added to the world
-    cubes: [],
+    // Array that holds all cubes added to the world, found from local storage or empty
+    cubes: getLocalStorage('cubes') || [],
 
     // Takes in position to add cube and adds it to the cube array
     addCube: (x, y, z) => {
@@ -40,6 +42,18 @@ export const useStore = create((set) => ({
             texture
         }))
     },
-    SaveWorld: () => {},
-    ResetWorld: () => {}
+
+    // Save the world to the local storage
+    saveWorld: () => {
+        set((previousState) => {
+            setLocalStorage('cubes', previousState.cubes)
+        })
+    },
+
+    // Make the array of cubes empty
+    resetWorld: () => {
+        set(() => ({
+            cubes: []
+        }))
+    }
 }))

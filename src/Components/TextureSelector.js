@@ -8,7 +8,7 @@ const images = {
     grassTexture: grassImg,
     glassTexture: glassImg,
     woodTexture: woodImg,
-    logTexture11: logImg
+    logTexture: logImg
 }
 
 export const TextureSelector = () => {
